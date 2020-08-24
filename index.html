@@ -12,6 +12,7 @@
             font-family:'Arial';
             text-align: center;
         }
+        div.cabe{background-color:rgb(66, 57, 43);padding: 20px;margin-bottom: 40px;}
         div.grafico{min-height:90%;width:90%;margin:auto;background-color:rgb(66, 57, 43);}
         img.atual{content:url("https://glennmccomb.com/img/uploads/work-nowapp-sections-standings-lqip.jpg");}
         img.pequena{max-height:30px;}
@@ -53,6 +54,8 @@
             color:white;
             margin:auto;
         }
+        .stand tr td:nth-child(3){display:none;}
+        .stand tr th:nth-child(3){display:none;}
         td{width:50px;}
         .stand tr:nth-child(2) td,.stand tr:nth-child(3) td,.stand tr:nth-child(4) td,.stand tr:nth-child(5) td,.stand tr:nth-child(6) td,.stand tr:nth-child(7) td{
             background-color: cornflowerblue;
@@ -71,9 +74,11 @@
     </style>
 </head>
 <body>
-    <h1>Apostas para o Brasileirão 2020</h1>
-    <p>A equipe do antigo blog Box To Box e convidados apostaram em como a tabela de classificação do Campeonato Brasileiro Série A de 2020 terminará.</p>
-    <table class="stand">
+    <div class="cabe">
+        <h1>Palpiteiros</h1>
+        <p>A equipe do antigo blog Box To Box e convidados apostaram em como a tabela de classificação do Campeonato Brasileiro Série A de 2020 terminará.</p>
+    </div>
+        <table class="stand">
         <tbody>
             <tr>
                 <th><img class="pequena atual" title="Classificação"></th>
