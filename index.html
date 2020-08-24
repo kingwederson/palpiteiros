@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <title>Apostas do Brasileirão</title>
+    <style>
+        body{
+            color:white;
+            background-color: black;
+            font-family:'Arial';
+            text-align: center;
+        }
+        div.grafico{min-height:90%;width:90%;margin:auto;background-color:rgb(66, 57, 43);}
+        img.atual{content:url("https://glennmccomb.com/img/uploads/work-nowapp-sections-standings-lqip.jpg");}
+        img.pequena{max-height:30px;}
+        img.joaovitor{content:url("https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p100x100/79797218_454758561907388_3567888994177908736_o.jpg?_nc_cat=105&_nc_sid=dbb9e7&_nc_ohc=zv3O457hj2EAX_59Yay&_nc_ht=scontent-gru2-1.xx&_nc_tp=6&oh=6f9ed0366e15074abcaf3ae81933829e&oe=5F66BF20");}
+        img.mateus{content:url("https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p100x100/80770228_2954410867950649_916042002259247104_o.jpg?_nc_cat=105&_nc_sid=dbb9e7&_nc_ohc=gyp19Q4WEHYAX8yKORO&_nc_ht=scontent-gru2-1.xx&_nc_tp=6&oh=861aa753e487eec55f7eb6564742ca6e&oe=5F63C022");}
+        img.wallace{content:url("https://scontent-gru1-1.xx.fbcdn.net/v/t1.0-1/p160x160/89828037_3056638777682218_8701506576650862592_o.jpg?_nc_cat=102&_nc_sid=dbb9e7&_nc_ohc=2r0PLmfTChsAX_FtrM9&_nc_ht=scontent-gru1-1.xx&_nc_tp=6&oh=aa8f80a2e835d0284ef5d655ecf19820&oe=5F670A2A");}
+        img.wederson{content:url("https://scontent-gru1-1.xx.fbcdn.net/v/t1.0-1/p160x160/12647342_465353273650725_7158585201112297662_n.jpg?_nc_cat=103&_nc_sid=dbb9e7&_nc_ohc=Z6T1578Wp60AX8Ev-Ua&_nc_ht=scontent-gru1-1.xx&_nc_tp=6&oh=8cfe0e905da1b647170d142121dd93ed&oe=5F652345");}
+        img.fte{content:url("https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/images/fivethirtyeight-logo-touch.png?v=1.0.23");}
+        img.pedro{content:url("https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p160x160/15726648_1191673184261456_9002135003646439078_n.jpg?_nc_cat=110&_nc_sid=dbb9e7&_nc_ohc=kkmHUD2IQlkAX_pvo2D&_nc_ht=scontent-gru2-1.xx&_nc_tp=6&oh=66e827fdb005ef412eb9799c8d574590&oe=5F653F50");}
+        img.kauan{content:url("https://scontent-gru1-1.xx.fbcdn.net/v/t1.0-1/p160x160/109589512_2587337758194476_8840675677793500872_n.jpg?_nc_cat=104&_nc_sid=dbb9e7&_nc_ohc=n9vPeSSqCHcAX-Kh0fo&_nc_ht=scontent-gru1-1.xx&_nc_tp=6&oh=0d1b3663ef10895848a98e974ed9c735&oe=5F65A78C");}
+        img.romario{content:url("https://scontent-gru1-1.xx.fbcdn.net/v/t1.0-1/c0.3.100.100a/p100x100/13754208_1813237348898535_9044904100472068562_n.jpg?_nc_cat=102&_nc_sid=dbb9e7&_nc_ohc=3et-8YS-YyUAX8Oua4q&_nc_ht=scontent-gru1-1.xx&oh=65a4738961fc6a13143a67524aaab066&oe=5F6719D2");}
+
+        img.ACG{content:url("https://upload.wikimedia.org/wikipedia/pt/c/cc/Atl%C3%A9tico_Clube_Goianiense_escudo_2020.png")}
+        img.BAH{content:url("https://upload.wikimedia.org/wikipedia/pt/9/90/ECBahia.png")}
+        img.BOT{content:url("https://logodetimes.com/times/botafogo/logo-botafogo-256.png")}
+        img.CAM{content:url("https://logodetimes.com/times/atletico-mineiro/logo-atletico-mineiro-256.png")}
+        img.CAP{content:url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/CA_Paranaense.svg/240px-CA_Paranaense.svg.png")}
+        img.CEA{content:url("https://logodetimes.com/times/ceara/logo-ceara-256.png")}
+        img.CHA{content:url("https://upload.wikimedia.org/wikipedia/commons/6/61/S%C3%ADmbolo_Chapecoense_sem_estrelas.svg")}
+        img.COR{content:url("https://s.glbimg.com/es/sde/f/equipes/2018/03/10/corinthians.svg")}
+        img.CTB{content:url("https://upload.wikimedia.org/wikipedia/commons/3/38/Coritiba_FBC_%282011%29_-_PR.svg")}
+        img.FLA{content:url("https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg");max-height:25px}
+        img.FLU{content:url("https://upload.wikimedia.org/wikipedia/de/1/12/Fluminense_Football_Club.svg")}
+        img.FOR{content:url("https://upload.wikimedia.org/wikipedia/commons/3/3d/Fortaleza_Esporte_Clube_logo.svg")}
+        img.GOI{content:url("https://upload.wikimedia.org/wikipedia/commons/7/71/Goias_Esporte_Clube_inverted_logo.svg")}
+        img.GRE{content:url("https://upload.wikimedia.org/wikipedia/en/f/f1/Gremio.svg")}
+        img.INT{content:url("https://upload.wikimedia.org/wikipedia/commons/f/f1/Escudo_do_Sport_Club_Internacional.svg")}
+        img.PAL{content:url("https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg")}
+        img.RBB{content:url("https://upload.wikimedia.org/wikipedia/pt/9/94/Red_Bull_Brasil.png")}
+        img.SAN{content:url("https://upload.wikimedia.org/wikipedia/commons/3/35/Santos_logo.svg")}
+        img.SPFC{content:url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg")}
+        img.SPO{content:url("https://upload.wikimedia.org/wikipedia/pt/1/17/Sport_Club_do_Recife.png")}
+        img.VAS{content:url("https://upload.wikimedia.org/wikipedia/en/1/1a/ClubDeRegatasVascoDaGama.svg")}
+        table,td,th{
+            border:black 1px solid;
+            border-radius:5px;
+            text-align: center;
+            background-color: rgb(66, 57, 43);
+            color:white;
+            margin:auto;
+        }
+        td{width:50px;}
+        .stand tr:nth-child(2) td,.stand tr:nth-child(3) td,.stand tr:nth-child(4) td,.stand tr:nth-child(5) td,.stand tr:nth-child(6) td,.stand tr:nth-child(7) td{
+            background-color: cornflowerblue;
+        }
+        .stand tr:nth-child(8) td,.stand tr:nth-child(9) td,.stand tr:nth-child(10) td,.stand tr:nth-child(11) td,.stand tr:nth-child(12) td,.stand tr:nth-child(13) td,
+        .stand tr:nth-child(14) td,.stand tr:nth-child(15) td,.stand tr:nth-child(16) td,.stand tr:nth-child(17) td{
+            background-color: rgb(87, 207, 87);
+        }
+        .stand tr:nth-child(18) td,.stand tr:nth-child(19) td,.stand tr:nth-child(20) td,.stand tr:nth-child(21) td{
+            background-color: rgb(207, 87, 87);
+        }
+        table.stand tr:nth-child(1) th{
+            position:sticky;
+            top:0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Apostas para o Brasileirão 2020</h1>
+    <p>A equipe do antigo blog Box To Box e convidados apostaram em como a tabela de classificação do Campeonato Brasileiro Série A de 2020 terminará.</p>
+    <table class="stand">
+        <tbody>
+            <tr>
+                <th><img class="pequena atual" title="Classificação"></th>
+                <th>&sharp;</th>
+                <th><img class="pequena joaovitor" title="João Vitor Barreto"></th>
+                <th><img class="pequena mateus" title="Mateus Duarte"></th>
+                <th><img class="pequena wallace" title="Wallace Augustinho"></th>
+                <th><img class="pequena wederson" title="Wederson de Paula"></th>
+                <th><img class="pequena fte" title="Five Thirty Eight"></th>
+                <th><img class="pequena pedro" title="Pedro Pinheiro"></th>
+                <th><img class="pequena kauan" title="Kauan Almeida"></th>
+                <th><img class="pequena romario" title="Vinícius Romário"></th>
+            </tr>
+            <tr>
+                <td><img class="pequena INT"></td>
+                <th>1</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena FLA"></td>
+                <td><img class="pequena BOT"></td>
+                <td><img class="pequena CAM"></td>
+                <td><img class="pequena FLA"></td>
+                <td><img class="pequena VAS"></td>
+                <td><img class="pequena GRE"></td>
+                <td><img class="pequena FLA"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena VAS"></td>
+                <th>2</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena GRE"></td>
+                <td><img class="pequena CAM"></td>
+                <td><img class="pequena GRE"></td>
+                <td><img class="pequena PAL"></td>
+                <td><img class="pequena FLA"></td>
+                <td><img class="pequena INT"></td>
+                <td><img class="pequena CAM"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena CAM"></td>
+                <th>3</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena CAM"></td>
+                <td><img class="pequena INT"></td>
+                <td><img class="pequena FLA"></td>
+                <td><img class="pequena GRE"></td>
+                <td><img class="pequena CAM"></td>
+                <td><img class="pequena FLA"></td>
+                <td><img class="pequena INT"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena PAL"></td>
+                <th>4</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena PAL"></td>
+                <td><img class="pequena GRE"></td>
+                <td><img class="pequena PAL"></td>
+                <td><img class="pequena INT"></td>
+                <td><img class="pequena GRE"></td>
+                <td><img class="pequena CAM"></td>
+                <td><img class="pequena GRE"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena SPFC"></td>
+                <th>5</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena SAN"></td>
+                <td><img class="pequena FLA"></td>
+                <td><img class="pequena INT"></td>
+                <td><img class="pequena SAN"></td>
+                <td><img class="pequena INT"></td>
+                <td><img class="pequena PAL"></td>
+                <td><img class="pequena BOT"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena SAN"></td>
+                <th>6</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena INT"></td>
+                <td><img class="pequena PAL"></td>
+                <td><img class="pequena VAS"></td>
+                <td><img class="pequena CAM"></td>
+                <td><img class="pequena CAP"></td>
+                <td><img class="pequena SAN"></td>
+                <td><img class="pequena PAL"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena FLU"></td>
+                <th>7</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena COR"></td>
+                <td><img class="pequena CAP"></td>
+                <td><img class="pequena CAP"></td>
+                <td><img class="pequena SPFC"></td>
+                <td><img class="pequena BAH"></td>
+                <td><img class="pequena VAS"></td>
+                <td><img class="pequena COR"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena BAH"></td>
+                <th>8</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena VAS"></td>
+                <td><img class="pequena COR"></td>
+                <td><img class="pequena COR"></td>
+                <td><img class="pequena CAP"></td>
+                <td><img class="pequena PAL"></td>
+                <td><img class="pequena COR"></td>
+                <td><img class="pequena VAS"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena GRE"></td>
+                <th>9</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena CAP"></td>
+                <td><img class="pequena SAN"></td>
+                <td><img class="pequena FLU"></td>
+                <td><img class="pequena VAS"></td>
+                <td><img class="pequena BOT"></td>
+                <td><img class="pequena SPFC"></td>
+                <td><img class="pequena SPFC"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena CAP"></td>
+                <th>10</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena BAH"></td>
+                <td><img class="pequena VAS"></td>
+                <td><img class="pequena BAH"></td>
+                <td><img class="pequena COR"></td>
+                <td><img class="pequena SPFC"></td>
+                <td><img class="pequena BOT"></td>
+                <td><img class="pequena CAP"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena BOT"></td>
+                <th>11</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena SPFC"></td>
+                <td><img class="pequena BAH"></td>
+                <td><img class="pequena SPFC"></td>
+                <td><img class="pequena FLU"></td>
+                <td><img class="pequena RBB"></td>
+                <td><img class="pequena FLU"></td>
+                <td><img class="pequena FLU"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena RBB"></td>
+                <th>12</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena BOT"></td>
+                <td><img class="pequena RBB"></td>
+                <td><img class="pequena RBB"></td>
+                <td><img class="pequena BAH"></td>
+                <td><img class="pequena SAN"></td>
+                <td><img class="pequena BAH"></td>
+                <td><img class="pequena BAH"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena FLA"></td>
+                <th>13</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena RBB"></td>
+                <td><img class="pequena FLU"></td>
+                <td><img class="pequena SAN"></td>
+                <td><img class="pequena RBB"></td>
+                <td><img class="pequena COR"></td>
+                <td><img class="pequena FOR"></td>
+                <td><img class="pequena SAN"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena COR"></td>
+                <th>14</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena FOR"></td>
+                <td><img class="pequena SPFC"></td>
+                <td><img class="pequena BOT"></td>
+                <td><img class="pequena FOR"></td>
+                <td><img class="pequena ACG"></td>
+                <td><img class="pequena CEA"></td>
+                <td><img class="pequena GOI"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena GOI"></td>
+                <th>15</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena FLU"></td>
+                <td><img class="pequena FOR"></td>
+                <td><img class="pequena FOR"></td>
+                <td><img class="pequena BOT"></td>
+                <td><img class="pequena FOR"></td>
+                <td><img class="pequena CAP"></td>
+                <td><img class="pequena RBB"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena FOR"></td>
+                <th>16</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena ACG"></td>
+                <td><img class="pequena CEA"></td>
+                <td><img class="pequena ACG"></td>
+                <td><img class="pequena CEA"></td>
+                <td><img class="pequena FLU"></td>
+                <td><img class="pequena RBB"></td>
+                <td><img class="pequena FOR"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena ACG"></td>
+                <th>17</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena GOI"></td>
+                <td><img class="pequena SPO"></td>
+                <td><img class="pequena GOI"></td>
+                <td><img class="pequena ACG"></td>
+                <td><img class="pequena GOI"></td>
+                <td><img class="pequena GOI"></td>
+                <td><img class="pequena ACG"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena SPO"></td>
+                <th>18</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena CEA"></td>
+                <td><img class="pequena ACG"></td>
+                <td><img class="pequena SPO"></td>
+                <td><img class="pequena SPO"></td>
+                <td><img class="pequena SPO"></td>
+                <td><img class="pequena CTB"></td>
+                <td><img class="pequena CEA"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena CEA"></td>
+                <th>19</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena SPO"></td>
+                <td><img class="pequena GOI"></td>
+                <td><img class="pequena CEA"></td>
+                <td><img class="pequena GOI"></td>
+                <td><img class="pequena CEA"></td>
+                <td><img class="pequena SPO"></td>
+                <td><img class="pequena SPO"></td>
+            </tr>
+            <tr>
+                <td><img class="pequena CTB"></td>
+                <th>20</th>
+                <td><img class="pequena "></td>
+                <td><img class="pequena CTB"></td>
+                <td><img class="pequena CTB"></td>
+                <td><img class="pequena CTB"></td>
+                <td><img class="pequena CTB"></td>
+                <td><img class="pequena CTB"></td>
+                <td><img class="pequena ACG"></td>
+                <td><img class="pequena CTB"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Pontuação por rodada</h3>
+        <div class="grafico">
+            <canvas class="line-chart"></canvas>
+        </div>
+
+        <script>
+            var ctx = document.getElementsByClassName('line-chart')
+            var posporrod = new Chart(ctx,{
+                type: 'line',
+                data: {
+                    labels: [1,2,3,4,5],
+                    datasets:[/*{
+                        label: "João Vitor",
+                        data: [0,0,0,0],
+                        borderWidth: 2,
+                        borderColor: 'rgba(128,128,255,1)'
+                    },*/
+                    {
+                        label: "Mateus",
+                        data: [919,822,839,1054,1138],
+                        borderWidth: 2,
+                        borderColor: 'rgba(0,0,255,1)'
+                    },
+                    {
+                        label: "Wallace",
+                        data: [868,779,838,1098,950],
+                        borderWidth: 2,
+                        borderColor: 'rgba(255,128,128,1)'
+                    },
+                    {
+                        label: "Wederson",
+                        data: [838,840,1018,988,1138],
+                        borderWidth: 2,
+                        borderColor: 'rgba(255,128,0,1)'
+                    },
+                    {
+                        label: "FiveThirtyEight",
+                        data: [1058,755,784,934,1070],
+                        borderWidth: 2,
+                        borderColor: 'rgba(128,128,128,1)'
+                    },
+                    {
+                        label: "Pedro",
+                        data: [899,988,994,1385,1157],
+                        borderWidth: 2,
+                        borderColor: 'rgba(255,0,0,1)'
+                    },
+                    {
+                        label: "Kauan",
+                        data: [879,858,719,838,970],
+                        borderWidth: 2,
+                        borderColor: 'rgba(255,255,0,1)'
+                    },
+                    {
+                        label: "Romário",
+                        data: [867,787,853,880,1080],
+                        borderWidth: 2,
+                        borderColor: 'rgba(0,255,0,1)'
+                    }]
+                },
+                options: {
+                    legend: {
+                        labels:{
+                            fontColor:'white'
+                        }
+                    },
+                    scales: {
+                        xAxes:[{
+                            ticks: {
+                                fontColor: "white"
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {/*
+                                suggestedMin: 0,
+                                suggestedMax: 2000,*/
+                                precision: 100,
+                                stepSize: 100,
+                                fontColor: "white"
+                            }
+                        }]
+                    }
+                }
+            })
+        </script>
+        <h3>Pontuação</h3>
+        <table>
+            <tr>
+                <th>Erros</th>
+                <th>Pontos</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>81</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>64</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>49</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>36</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>10 ou mais</td>
+                <td>0</td>
+            </tr>
+        </table>
+        <p>O site FiveThirtyEight fez em 2018 <b>1192</b> pontos e em 2019 <b>1218</b> pontos.</p>
+</body>
+</html>
