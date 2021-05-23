@@ -4,6 +4,7 @@ body{
     border: 1px solid black;
     font-family: 'Nunito', sans-serif;
     background-color: #6495ed;
+    width:none;
 }
 b{
     color:crimson;
@@ -88,12 +89,16 @@ p{
     text-indent: 32px;
     max-width: 720px;
 }
+table{
+    word-wrap:break-word;
+}
 table,td,th{
     border:1px solid black;
     text-align: center;
+    border-radius: 2px;
 }
 td{
-    min-width:64px;
+    min-width:48px;
 }
 td.clube{
     min-width: 128px;
