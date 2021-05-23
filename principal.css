@@ -59,9 +59,10 @@ ul.menu{
 }
 ul.menu li{
     display:inline-block;
-    padding:0px 5px;
+    padding:0px 10px;
     border-radius:7px;
     background-color: rgb(64, 98, 160);
+    font-size: 18pt;
 }
 #menu li{
     color:white;
