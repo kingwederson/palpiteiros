@@ -55,21 +55,6 @@ span#hie2{
 img.logo{
     display: inline-block;
 }
-ul.menu{
-    list-style-type: none;
-}
-ul.menu li{
-    display:inline-block;
-    padding:0px 10px;
-    border-radius:7px;
-    background-color: rgb(64, 98, 160);
-    font-size: 18pt;
-}
-#menu li{
-    color:white;
-}
-/*##################### FIM ################*/
-
 /*############ INFORMAÇÕES TEXTUAIS BÁSICAS ###########*/
 h1,h2,h3,h4,h5,h6{
     text-align: center;
@@ -89,80 +74,7 @@ p{
     text-indent: 32px;
     max-width: 720px;
 }
-table{
-    word-wrap:break-word;
-}
-table,td,th{
-    border:1px solid black;
-    text-align: center;
-    border-radius: 2px;
-}
-td{
-    min-width:48px;
-}
-td.clube{
-    min-width: 128px;
-}
-input[type="number"]{
-    width:32px;
-    text-align: center;
-    font-weight: 300;
-    font-family: sans-serif;
-    font-size: 16pt;
-}
-td.p3{
-    background-color: darkgreen;
-    color:white;
-}
-td.p2{
-    background-color: yellow;
-}
-td.p3{
-    background-color: orange;
-}
-td.p0{
-    background-color: darkred;
-    color:white;
-}
-/*##################### FIM ################*/
-
-/*############# CARD DE MATÉRIAS ############*/
-div.materia{
-    max-width: 512px;
-    border:1px solid black;
-    margin:auto;
-    padding:0px 12px;
-    border-radius: 12px;
-    margin:12px;
-}
-p.lista{
-    text-align: center;
-}
-a:active, a:link, a:visited{
-    text-decoration: none;
-}
-/*##################### FIM ################*/
-
-/*############# BARRA LATERAL ###############*/
-div.secundaria{
-    display: block;
-}
-nav#ligacoes{
-    padding: 0%;
-    background-color: #0003;
-    border-radius: 5%;
-}
-nav#ligacoes a{
-    color:black;
-}
-ul.lateral{
-    color:#000;
-}
-ul.lateral li:hover{
-    color:white;
-    transition: 0.5s;
-}
-div.secundaria nav#ligacoes h2{
-    font-size:14pt;
+small{
+    font-size: 0.5em;
 }
 /*##################### FIM ################*/

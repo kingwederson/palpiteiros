@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
     <title>Palpiteiros 2021</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="principal.css?v=21.04.16">
+    <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href="tabelaclassificacao.css">
+    <link rel="stylesheet" href="imagens.css">
     <script src="cabecalho.js?v=21.04.16"></script>
     <script src="rodape.js?v=21.04.16"></script>
     <script src="lateral.js?v=21.04.16"></script>
@@ -20,172 +22,94 @@
             <a href="http://palpiteiros.wederson.net.br/">
                 <nav class="titulo"><span id="hie1">Palpiteiros</span></nav>
             </a>
-            <nav id="menu">
-                <ul class="menu">
-                    <a href="http://palpiteiros.wederson.net.br/"><li>Resultados</li></a>
-                    <a href="http://palpiteiros.wederson.net.br/stand/"><li>Classificação</li></a></a>
-                    <a href="http://palpiteiros.wederson.net.br/aposta/"><li>Aposta</li></a></a>
-                </ul>
-            </nav>
         </nav>
     </div>
 
     <div class="main" id="conteudo">
         <nav id="conteudoinfo">
-            <h1>Concurso 1</h1>
-            <h2>Série B #01/#02</h2>
+            <h1>Classificação</h1>
             <table>
                 <tr>
-                    <th colspan="3">Partida</th>
-                    <th>BA</th>
-                    <th>JV</th>
-                    <th>MD</th>
-                    <th>PP</th>
-                    <th>RA</th>
-                    <th>WA</th>
-                    <th>WP</th>
+                    <th colspan="3">Equipe</th>
+                    <th>Total</th>
+                    <th>1<sup>a</sup></th>
                 </tr>
-                <tr>
-                    <td class="clube">Brasil</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Londrina</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Wederson de Paula" class="row1">
+                    <td>1</td>
+                    <td><img class="club wederson" alt=""></td>
+                    <th>Maccabi Gan</th>
+                    <td>67<small>34</small></td>
+                    <td>67.34</td>
                 </tr>
-                <tr>
-                    <td class="clube">Guarani</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Vitória</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Rodrigo Cunha" class="row2">
+                    <td>2</td>
+                    <td><img class="club rodrigocunha" alt=""></td>
+                    <th>Palmitokm</th>
+                    <td>60<small>25</small></td>
+                    <td>60.25</td>
                 </tr>
-                <tr>
-                    <td class="clube">Vila Nova</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Botafogo</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Silas Daniel S. F." class="row3">
+                    <td>3</td>
+                    <td><img class="club silas" alt=""></td>
+                    <th>Silão F.C.</th>
+                    <td>56<small>35</small></td>
+                    <td>56.35</td>
                 </tr>
-                <tr>
-                    <td class="clube">Náutico</td>
-                    <td> &mdash; </td>
-                    <td class="clube">CSA</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Pedro Pinheiro" class="row4">
+                    <td>4</td>
+                    <td><img class="club pepe" alt=""></td>
+                    <th>Club de Regatas Pepe da Gama</th>
+                    <td>54<small>81</small></td>
+                    <td>54.81</td>
                 </tr>
-                <tr>
-                    <td class="clube">Vasco</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Operário</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="BN Lopes" class="row5">
+                    <td>5</td>
+                    <td><img class="club bnlopes" alt=""></td>
+                    <th>Fora Ceni fdp</th>
+                    <td>52<small>79</small></td>
+                    <td>52.79</td>
                 </tr>
-                <tr>
-                    <td class="clube">CRB</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Remo</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Wallace Augustinho" class="row6">
+                    <td>6</td>
+                    <td><img class="club wallace" alt=""></td>
+                    <th>System Of Ball FC</th>
+                    <td>50<small>03</small></td>
+                    <td>50.03</td>
                 </tr>
-                <tr>
-                    <td class="clube">Confiança</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Cruzeiro</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="João Vitor Barreto" class="row7">
+                    <td>7</td>
+                    <td><img class="club jvb" alt=""></td>
+                    <th>Brasília Packers</th>
+                    <td>48<small>85</small></td>
+                    <td>48.85</td>
                 </tr>
-                <tr>
-                    <td class="clube">Coritiba</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Avaí</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Tiago Silva" class="row8">
+                    <td>8</td>
+                    <td><img class="club tiagosilva" alt=""></td>
+                    <th>Team of Warriors FC</th>
+                    <td>44<small>45</small></td>
+                    <td>44.45</td>
                 </tr>
-                <tr>
-                    <td class="clube">Brusque</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Ponte Preta</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Edu" class="row9">
+                    <td>9</td>
+                    <td><img class="club edu" alt=""></td>
+                    <th>Edu BRF</th>
+                    <td>39<small>55</small></td>
+                    <td>39.55</td>
                 </tr>
-                <tr>
-                    <td class="clube">Sampaio Corrêa</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Goiás</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
+                <tr title="Vinícius Romário" class="row10">
+                    <td>10</td>
+                    <td><img class="club vr7" alt=""></td>
+                    <th>Los Hermanos</th>
+                    <td>36<small>65</small></td>
+                    <td>36.65</td>
                 </tr>
-                <tr>
-                    <td class="clube">Operário</td>
-                    <td> &mdash; </td>
-                    <td class="clube">Guarani</td>
-                    <td> &ndash; </td> <!--Bruno-->
-                    <td> &ndash; </td> <!--João Vitor-->
-                    <td> &ndash; </td> <!--Mateus-->
-                    <td> &ndash; </td> <!--Pedro-->
-                    <td> &ndash; </td> <!--Romário-->
-                    <td> &ndash; </td> <!--Wallace-->
-                    <td> &ndash; </td> <!--Wederson-->
-                </tr>
-                <tr>
-                    <th colspan="3">Saldo</th>
-                    <th>&#8987;</th>
-                    <th>&#8987;</th>
-                    <th>&#8987;</th>
-                    <th>&#8987;</th>
-                    <th>&#8987;</th>
-                    <th>&#8987;</th>
-                    <th>&#8987;</th>
+                <tr title="Mateus Duarte" class="row11">
+                    <td>11</td>
+                    <td><img class="club mateus" alt=""></td>
+                    <th>FC Inter da Gama</th>
+                    <td>0<small>00</small></td>
+                    <td>0.00</td>
                 </tr>
             </table>
         </nav>
